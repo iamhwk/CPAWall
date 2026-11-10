@@ -1,0 +1,33 @@
+# The running example's employer project (design, Figure 6), with the
+# team's deny rule on secrets/ stated in the policy as well.
+project: work
+background: true              # nightly dependency updates
+policy:                       # reference policy I; anything not listed: deny
+  "repo://git.test/acme/*":   {read: allow, push: ask}
+  "file://~/work/payments/**":         {read: allow, write: allow}
+  "file://~/work/payments/secrets/**": {read: deny, write: deny}
+  db://staging:               {read: allow, write: ask}
+  cloud://acme-staging:       {read: allow, delete: ask}
+  chat://acme:                {read: allow, send: allow}
+grants:
+  mcp:
+    - server: github
+      resource: "repo://git.test/acme/*"
+      ops: {read: allow, push: ask}
+    - server: stagingdb
+      resource: db://staging
+      ops: {read: allow, write: ask}
+  shell:
+    - site: https://git.test  # git without a prompt
+      ops: {read: allow, act: allow}
+    - site: https://cloud.test
+      ops: {read: allow, act: ask}
+  connectors:
+    - service: chat
+      resource: chat://acme
+      ops: {read: allow, send: allow}
+  fs:
+    - path: ~/work/payments
+      ops: {read: allow, write: allow}
+    - path: ~/work/payments/secrets   # the team's deny rule
+      ops: {read: deny, write: deny}

@@ -1,0 +1,126 @@
+{
+ "claude-sonnet-5-5": {
+  "campaign": {
+   "bulkhead": {
+    "C1": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C2": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C3": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C4": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C5": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "records": 256
+   }
+  },
+  "rerun bulkhead MA1-issue": {
+   "bulkhead": {
+    "C1": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C2": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C3": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C4": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C5": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "records": 93
+   }
+  }
+ },
+ "claude-haiku-5-5": {
+  "campaign": {
+   "bulkhead": {
+    "C1": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C2": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C3": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C4": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C5": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "records": 269
+   }
+  },
+  "rerun bulkhead MA1-issue": {
+   "bulkhead": {
+    "C1": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C2": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C3": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C4": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "C5": {
+     "ok": true,
+     "count": 0,
+     "problems": []
+    },
+    "records": 91
+   }
+  }
+ }
+}

@@ -1,0 +1,39 @@
+# Runs the unit tests on every push and pull request. The testbed needs its
+# host names in /etc/hosts and port 443 on loopback addresses; the sandbox
+# tests need unprivileged user namespaces, which Ubuntu restricts through
+# AppArmor.
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Prepare the host
+        run: |
+          printf '%s\n' "127.77.0.1 git.test" "127.77.0.2 cloud.test" \
+            "127.77.0.3 db.test" "127.77.0.4 chat.test" | sudo tee -a /etc/hosts
+          sudo sysctl -w net.ipv4.ip_unprivileged_port_start=0
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -t . -v

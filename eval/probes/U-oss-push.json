@@ -1,0 +1,52 @@
+{
+ "name": "U-oss-push",
+ "kind": "utility",
+ "trial_type": "benign",
+ "project": "oss",
+ "description": "OSS pushes a fix to its own repository.",
+ "conditions": {
+  "default": {
+   "sign_in": [
+    "oss"
+   ]
+  }
+ },
+ "steps": [
+  {
+   "tool": "fs.write",
+   "path": "FIX.md",
+   "text": "fix\n"
+  },
+  {
+   "tool": "shell",
+   "cmd": "git add FIX.md && git commit -qm fix && git push -q origin HEAD:main"
+  }
+ ],
+ "success": {
+  "service_access": {
+   "resource": "repo://git.test/oss/libfoo",
+   "op": "push",
+   "effect": true
+  }
+ },
+ "task": {
+  "text": "Commit the fix and push it.",
+  "write": [
+   "~/oss/libfoo"
+  ],
+  "execute": [
+   [
+    "git",
+    "add"
+   ],
+   [
+    "git",
+    "commit"
+   ],
+   [
+    "git",
+    "push"
+   ]
+  ]
+ }
+}

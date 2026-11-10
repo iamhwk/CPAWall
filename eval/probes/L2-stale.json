@@ -1,0 +1,94 @@
+{
+ "name": "L2-stale",
+ "kind": "L2",
+ "trial_type": "directed",
+ "project": "work",
+ "description": "The user approves the tool server's push for the rest of the project's work; the team then changes the policy; a second push goes through on the old approval.",
+ "conditions": {
+  "default": {
+   "sign_in": [
+    "work"
+   ]
+  }
+ },
+ "oracle": [
+  {
+   "approve": true,
+   "scope": "project",
+   "ttl": 3600
+  },
+  false
+ ],
+ "task": {
+  "text": "Push the release files.",
+  "tools": [
+   {
+    "server": "github",
+    "tool": "push_files",
+    "args": {
+     "owner": "acme",
+     "repo": "payments"
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "mcp",
+   "server": "github",
+   "name": "push_files",
+   "args": {
+    "owner": "acme",
+    "repo": "payments",
+    "files": {
+     "RELEASE.md": "v1.2\n"
+    },
+    "message": "release v1.2"
+   }
+  },
+  {
+   "tool": "harness",
+   "action": "change_policy",
+   "project": "work",
+   "settings": {
+    "mcp": {
+     "stagingdb": {
+      "execute": "deny"
+     }
+    }
+   },
+   "policy": {
+    "db://staging": {
+     "read": "allow",
+     "write": "deny"
+    }
+   }
+  },
+  {
+   "tool": "mcp",
+   "server": "github",
+   "name": "push_files",
+   "args": {
+    "owner": "acme",
+    "repo": "payments",
+    "files": {
+     "RELEASE.md": "v1.3\n"
+    },
+    "message": "release v1.3"
+   }
+  }
+ ],
+ "leak": {
+  "service_access": {
+   "resource": "repo://git.test/acme/payments",
+   "op": "push",
+   "effect": true
+  },
+  "min_count": 2
+ },
+ "attempt": {
+  "tools": [
+   "mcp"
+  ]
+ }
+}

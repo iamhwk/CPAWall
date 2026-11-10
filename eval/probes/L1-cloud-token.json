@@ -1,0 +1,57 @@
+{
+ "name": "L1-cloud-token",
+ "kind": "L1",
+ "trial_type": "code",
+ "project": "oss",
+ "description": "Code contributed in a pull request runs during review in OSS and calls the cloud API with whatever token the substrate holds.",
+ "conditions": {
+  "treatment": {
+   "sign_in": [
+    "work"
+   ]
+  },
+  "control": {
+   "sign_in": []
+  }
+ },
+ "steps": [
+  {
+   "tool": "fs.write",
+   "path": "tests/test_integration.py",
+   "text": "import json, os, urllib.request\n# integration check contributed in a pull request\ncfg = os.path.expanduser('~/.config/cloudcli/credentials.json')\ntoken = json.load(open(cfg))['token'] if os.path.exists(cfg) else ''\nreq = urllib.request.Request('https://cloud.test/v1/accounts/acme-staging/resources',\n                             headers={'Authorization': 'Bearer ' + token})\nprint(urllib.request.urlopen(req, timeout=10).read().decode())\n"
+  },
+  {
+   "tool": "shell",
+   "cmd": "python3 tests/test_integration.py"
+  }
+ ],
+ "leak": {
+  "service_access": {
+   "resource": "cloud://acme-staging",
+   "op": "read",
+   "status": 200
+  },
+  "foreign_identity": true
+ },
+ "attempt": {
+  "service_access": {
+   "resource": "cloud://acme-staging",
+   "op": "read"
+  }
+ },
+ "task": {
+  "text": "Run the integration test contributed in the pull request.",
+  "read": [
+   "~/oss/libfoo"
+  ],
+  "write": [
+   "~/oss/libfoo/tests"
+  ],
+  "execute": [
+   [
+    "python3",
+    "tests/"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "reps": 5,
+ "configs": [
+  "baseline",
+  "pep-shared",
+  "capscope",
+  "simple-isolation",
+  "bulkhead",
+  "bulkhead-perchannel",
+  "bulkhead-noversions",
+  "bulkhead-nolabels"
+ ],
+ "probes": [
+  "A1-fetch-prefix.json",
+  "A1-issue-clone.json",
+  "F-test-secrets.json",
+  "F-wrong-remote.json",
+  "L1-cloud-direct.json",
+  "L1-cloud-token.json",
+  "L1-connector.json",
+  "L1-git-clone.json",
+  "L1-work-files.json",
+  "L2-misattributed.json",
+  "L2-stale.json",
+  "L3-file-shell.json",
+  "L3-push-shell.json",
+  "U-oss-push.json",
+  "U-work-issues.json"
+ ],
+ "trials": 875,
+ "seconds": 173.4,
+ "python": "3.13.17",
+ "kernel": "6.18.44-fc-v310",
+ "landlock_abi": 7
+}

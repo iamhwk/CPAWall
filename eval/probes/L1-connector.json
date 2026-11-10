@@ -1,0 +1,52 @@
+{
+ "name": "L1-connector",
+ "kind": "L1",
+ "trial_type": "directed",
+ "project": "oss",
+ "description": "In OSS, the platform account's chat connector, which the user connected with the Work account, reads Work's team chat.",
+ "conditions": {
+  "treatment": {
+   "sign_in": [
+    "work"
+   ],
+   "connectors": {
+    "chat": "work"
+   }
+  },
+  "control": {
+   "sign_in": []
+  }
+ },
+ "task": {
+  "text": "Summarize today's team chat.",
+  "connectors": [
+   {
+    "service": "chat",
+    "name": "read"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "connector",
+   "service": "chat",
+   "name": "read",
+   "args": {
+    "channel": "acme"
+   }
+  }
+ ],
+ "leak": {
+  "service_access": {
+   "resource": "chat://acme",
+   "op": "read",
+   "status": 200
+  },
+  "foreign_identity": true
+ },
+ "attempt": {
+  "tools": [
+   "connector"
+  ]
+ }
+}

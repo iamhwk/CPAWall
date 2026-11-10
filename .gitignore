@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# raw outputs of a running model campaign; the finished results are
+# committed compressed (results.jsonl.gz)
+eval/results/m6b/results-*.jsonl
+eval/results/m6b/audits-*.json

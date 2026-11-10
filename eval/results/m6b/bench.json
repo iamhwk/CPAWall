@@ -1,0 +1,42 @@
+{
+ "api_direct": {
+  "n": 1000,
+  "median_ms": 2.85,
+  "p95_ms": 3.92
+ },
+ "api_pep": {
+  "n": 1000,
+  "median_ms": 6.13,
+  "p95_ms": 8.01
+ },
+ "clone_direct": {
+  "n": 100,
+  "median_ms": 48.97,
+  "p95_ms": 58.08
+ },
+ "clone_pep": {
+  "n": 100,
+  "median_ms": 46.12,
+  "p95_ms": 55.79
+ },
+ "partition_start": {
+  "n": 100,
+  "median_ms": 24.43,
+  "p95_ms": 32.07
+ },
+ "partition_command": {
+  "n": 250,
+  "median_ms": 1.76,
+  "p95_ms": 1.94
+ },
+ "mcp_direct": {
+  "n": 150,
+  "median_ms": 2.32,
+  "p95_ms": 3.05
+ },
+ "mcp_gateway": {
+  "n": 150,
+  "median_ms": 5.16,
+  "p95_ms": 6.83
+ }
+}

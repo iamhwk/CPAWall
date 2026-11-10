@@ -1,0 +1,66 @@
+{
+ "name": "L2-misattributed",
+ "kind": "L2",
+ "trial_type": "directed",
+ "project": "oss",
+ "description": "A background task started in OSS runs after the user switches to Work and is taken for Work's: Work's settings and tool server answer it.",
+ "conditions": {
+  "default": {
+   "sign_in": [
+    "oss",
+    "work"
+   ]
+  }
+ },
+ "manifest_overrides": {
+  "oss": {
+   "background": true
+  }
+ },
+ "skip": [
+  "capscope"
+ ],
+ "task": {
+  "text": "Watch the issues of acme/payments in the background.",
+  "tools": [
+   {
+    "server": "github",
+    "tool": "list_issues",
+    "args": {
+     "owner": "acme",
+     "repo": "payments"
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "mcp",
+   "server": "github",
+   "name": "list_issues",
+   "args": {
+    "owner": "acme",
+    "repo": "payments"
+   },
+   "background": true
+  },
+  {
+   "tool": "harness",
+   "action": "switch",
+   "project": "work"
+  }
+ ],
+ "leak": {
+  "service_access": {
+   "resource": "repo://git.test/acme/payments",
+   "op": "read",
+   "status": 200
+  },
+  "foreign_identity": true
+ },
+ "attempt": {
+  "tools": [
+   "mcp"
+  ]
+ }
+}

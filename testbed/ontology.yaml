@@ -1,0 +1,57 @@
+# Request mapping for the testbed's sites and tool servers (development
+# only; see bulkhead/policy/ontology.py). Rules are tried in order.
+
+schemes:
+  repo:  {ops: {read: read, push: act, comment: act}}
+  file:  {ops: {read: read, write: act}}
+  db:    {ops: {read: read, write: act}}
+  cloud: {ops: {read: read, delete: act}}
+  chat:  {ops: {read: read, send: act}}
+  web:   {ops: {read: read, act: act}}
+
+sites:
+  https://git.test:
+    resources: ["repo://git.test/*/*"]
+    requests:
+      # smart HTTP: fetch and push differ only in the service and endpoint
+      - {method: GET,  path: "/{owner}/{repo}.git/info/refs", query: {service: git-receive-pack},
+         resource: "repo://git.test/{owner}/{repo}", op: push}
+      - {method: GET,  path: "/{owner}/{repo}.git/info/refs",
+         resource: "repo://git.test/{owner}/{repo}", op: read}
+      - {method: POST, path: "/{owner}/{repo}.git/git-upload-pack",
+         resource: "repo://git.test/{owner}/{repo}", op: read}
+      - {method: POST, path: "/{owner}/{repo}.git/git-receive-pack",
+         resource: "repo://git.test/{owner}/{repo}", op: push}
+      - {method: GET,  path: "/{owner}/{repo}.git/{rest**}",
+         resource: "repo://git.test/{owner}/{repo}", op: read}
+      # issue API
+      - {method: GET,  path: "/api/repos/{owner}/{repo}/issues",
+         resource: "repo://git.test/{owner}/{repo}", op: read}
+      - {method: POST, path: "/api/repos/{owner}/{repo}/issues/{n}/comments",
+         resource: "repo://git.test/{owner}/{repo}", op: comment}
+  https://cloud.test:
+    resources: ["cloud://*"]
+    requests:
+      - {method: GET,    path: "/v1/accounts/{acct}/resources",
+         resource: "cloud://{acct}", op: read}
+      - {method: DELETE, path: "/v1/accounts/{acct}/resources/{id}",
+         resource: "cloud://{acct}", op: delete}
+  https://db.test:
+    resources: ["db://*"]
+    requests:
+      - {method: POST, path: "/{db}/query", resource: "db://{db}", op: read}
+      - {method: POST, path: "/{db}/exec",  resource: "db://{db}", op: write}
+  https://chat.test:
+    resources: ["chat://*"]
+    requests:
+      - {method: GET,  path: "/channels/{ch}/messages", resource: "chat://{ch}", op: read}
+      - {method: POST, path: "/channels/{ch}/messages", resource: "chat://{ch}", op: send}
+
+tools:
+  github:
+    list_issues: {resource: "repo://git.test/{owner}/{repo}", op: read}
+    add_comment: {resource: "repo://git.test/{owner}/{repo}", op: comment}
+    push_files:  {resource: "repo://git.test/{owner}/{repo}", op: push}
+  stagingdb:
+    query:   {resource: "db://{db}", op: read}
+    execute: {resource: "db://{db}", op: write}

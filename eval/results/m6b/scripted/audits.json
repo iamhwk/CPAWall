@@ -1,0 +1,182 @@
+{
+ "pep-shared": {
+  "C1": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C2": {
+   "ok": false,
+   "count": 10,
+   "problems": [
+    "cloud GET /v1/accounts/acme-staging/resources: read on cloud://acme-staging by work-bot has no forwarded PEP record",
+    "cloud GET /v1/accounts/acme-staging/resources: read on cloud://acme-staging by work-bot has no forwarded PEP record",
+    "cloud GET /v1/accounts/acme-staging/resources: read on cloud://acme-staging by work-bot has no forwarded PEP record",
+    "cloud GET /v1/accounts/acme-staging/resources: read on cloud://acme-staging by work-bot has no forwarded PEP record",
+    "cloud GET /v1/accounts/acme-staging/resources: read on cloud://acme-staging by work-bot has no forwarded PEP record",
+    "chat GET /channels/acme/messages: read on chat://acme by work-bot has no forwarded PEP record",
+    "chat GET /channels/acme/messages: read on chat://acme by work-bot has no forwarded PEP record",
+    "chat GET /channels/acme/messages: read on chat://acme by work-bot has no forwarded PEP record",
+    "chat GET /channels/acme/messages: read on chat://acme by work-bot has no forwarded PEP record",
+    "chat GET /channels/acme/messages: read on chat://acme by work-bot has no forwarded PEP record"
+   ]
+  },
+  "C3": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C4": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C5": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "records": 140
+ },
+ "bulkhead": {
+  "C1": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C2": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C3": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C4": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C5": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "records": 545
+ },
+ "bulkhead-perchannel": {
+  "C1": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C2": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C3": {
+   "ok": false,
+   "count": 20,
+   "problems": [
+    "seq 381: work push repo://git.test/acme/payments was decided allow, policy v6 says ask",
+    "seq 382: work push repo://git.test/acme/payments was decided allow, policy v6 says ask",
+    "seq 392: work push repo://git.test/acme/payments was decided allow, policy v8 says ask",
+    "seq 393: work push repo://git.test/acme/payments was decided allow, policy v8 says ask",
+    "seq 403: work push repo://git.test/acme/payments was decided allow, policy v10 says ask",
+    "seq 404: work push repo://git.test/acme/payments was decided allow, policy v10 says ask",
+    "seq 414: work push repo://git.test/acme/payments was decided allow, policy v12 says ask",
+    "seq 415: work push repo://git.test/acme/payments was decided allow, policy v12 says ask",
+    "seq 425: work push repo://git.test/acme/payments was decided allow, policy v14 says ask",
+    "seq 426: work push repo://git.test/acme/payments was decided allow, policy v14 says ask"
+   ]
+  },
+  "C4": {
+   "ok": false,
+   "count": 6,
+   "problems": [
+    "work push repo://git.test/acme/payments (v6): allow on tools; ask on mcp",
+    "work push repo://git.test/acme/payments (v8): allow on tools; ask on mcp",
+    "work push repo://git.test/acme/payments (v10): allow on tools; ask on mcp",
+    "work push repo://git.test/acme/payments (v12): allow on tools; ask on mcp",
+    "work push repo://git.test/acme/payments (v14): allow on tools; ask on mcp",
+    "work push repo://git.test/acme/payments (v16): allow on tools; ask on mcp"
+   ]
+  },
+  "C5": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "records": 550
+ },
+ "bulkhead-noversions": {
+  "C1": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C2": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C3": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C4": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C5": {
+   "ok": false,
+   "count": 15,
+   "problems": [
+    "seq 388: work push repo://git.test/acme/payments: approval a-a380a6-1 is for work push repo://git.test/acme/payments v6",
+    "seq 389: work push repo://git.test/acme/payments: approval a-a380a6-1 is for work push repo://git.test/acme/payments v6",
+    "seq 390: work push repo://git.test/acme/payments: approval a-a380a6-1 is for work push repo://git.test/acme/payments v6",
+    "seq 404: work push repo://git.test/acme/payments: approval a-8c8780-1 is for work push repo://git.test/acme/payments v8",
+    "seq 405: work push repo://git.test/acme/payments: approval a-8c8780-1 is for work push repo://git.test/acme/payments v8",
+    "seq 406: work push repo://git.test/acme/payments: approval a-8c8780-1 is for work push repo://git.test/acme/payments v8",
+    "seq 420: work push repo://git.test/acme/payments: approval a-e05e15-1 is for work push repo://git.test/acme/payments v10",
+    "seq 421: work push repo://git.test/acme/payments: approval a-e05e15-1 is for work push repo://git.test/acme/payments v10",
+    "seq 422: work push repo://git.test/acme/payments: approval a-e05e15-1 is for work push repo://git.test/acme/payments v10",
+    "seq 436: work push repo://git.test/acme/payments: approval a-17f0b5-1 is for work push repo://git.test/acme/payments v12"
+   ]
+  },
+  "records": 570
+ },
+ "bulkhead-nolabels": {
+  "C1": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C2": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C3": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C4": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "C5": {
+   "ok": true,
+   "count": 0,
+   "problems": []
+  },
+  "records": 540
+ }
+}

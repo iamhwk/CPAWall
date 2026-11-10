@@ -1,0 +1,12 @@
+# Resources the testbed holds, used by the compiler's check as witnesses
+# (alongside representatives of every pattern).
+resources:
+  - repo://git.test/oss/libfoo
+  - repo://git.test/acme/payments
+  - cloud://acme-staging
+  - db://staging
+  - chat://acme
+  - file://~/oss/libfoo/README.md
+  - file://~/work/payments/README.md
+  - file://~/work/payments/secrets/staging.env
+  - web://example.org

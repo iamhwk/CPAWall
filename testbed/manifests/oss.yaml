@@ -1,0 +1,21 @@
+# The running example's open-source project (design, Figure 6).
+project: oss
+background: false
+policy:                       # reference policy I; anything not listed: deny
+  repo://git.test/oss/libfoo: {read: allow, comment: allow, push: allow}
+  "file://~/oss/libfoo/**":   {read: allow, write: allow}
+  "web://*":                  {read: allow}
+grants:
+  mcp:
+    - server: github          # one public repository
+      resource: repo://git.test/oss/libfoo
+      ops: {read: allow, comment: allow, push: allow}
+  shell:
+    - resource: repo://git.test/oss/libfoo
+      ops: {read: allow, push: allow}
+  fs:
+    - path: ~/oss/libfoo
+      ops: {read: allow, write: allow}
+  browser:
+    - site: "*"               # read the web
+      ops: {read: allow}
