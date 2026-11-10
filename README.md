@@ -10,8 +10,9 @@ every channel, and a hash-chained log feeds an auditor. It runs on Linux
 only, because it uses user and network namespaces and Landlock.
 Milestone status and reports are in [`MILESTONES.md`](MILESTONES.md).
 
-The code is published at https://github.com/iamhwk/CPAWall, which is
-updated from the authors' working repository.
+The code is published at https://github.com/iamhwk/CPAWall under the
+Apache License 2.0 ([License](#license)); that repository is updated
+from the authors' working repository.
 
 ## Layout
 
@@ -262,3 +263,8 @@ python -m bulkhead.core.audit --state /tmp/bh-walk/core --service-log /tmp/bh-wa
 
 감사기 출력의 C1–C5는 논문의 V1–V5와 같습니다(코드는 예전 이름을 그대로
 씁니다). 처음부터 다시 하려면 `/tmp/bh-walk`를 지우면 됩니다.
+
+## License
+
+Licensed under the Apache License, Version 2.0 ([`LICENSE`](LICENSE)).
+The copyright notice is in [`NOTICE`](NOTICE).
