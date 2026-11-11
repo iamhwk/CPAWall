@@ -693,8 +693,9 @@ def _table(rows, cols):
     return "\n".join(out)
 
 
-def report(d):
-    """Markdown tables of a results file."""
+def report(d, trials=()):
+    """Markdown tables of a results file; `trials`, the model-driven trials
+    (M6b), adds their request rate."""
     m = d.get("machine", {})
     lines = ["# Load and scalability", "",
              f"Machine: {m.get('cpus')} vCPUs ({m.get('cpu')}), {m.get('memory_gb')} GB, "
@@ -758,9 +759,11 @@ def report(d):
                                                                   "overhead_pct")]), ""]
     if "replay" in d:
         rows = []
-        for cfg, probe in sorted({(r["config"], r["probe"]) for r in d["replay"]}):
-            rs = [r for r in d["replay"] if r["config"] == cfg and r["probe"] == probe]
-            rows.append({"config": cfg, "probe": probe, "trials": len(rs),
+        for model, cfg, probe in sorted({(r.get("model", ""), r["config"], r["probe"])
+                                         for r in d["replay"]}):
+            rs = [r for r in d["replay"] if r.get("model", "") == model
+                  and r["config"] == cfg and r["probe"] == probe]
+            rows.append({"model": model, "config": cfg, "probe": probe, "trials": len(rs),
                          "calls": pct([r["calls"] for r in rs], 0.5),
                          "success": sum(bool(r["success"]) for r in rs),
                          "tool_ms": pct([r["tool_ms"] for r in rs], 0.5),
@@ -771,13 +774,42 @@ def report(d):
         lines += ["## Replay of the model-driven utility trials (medians per trial)", "",
                   "Each configuration replays the tool calls recorded in it, three times; "
                   "harness time includes starting and stopping partitions.", "",
-                  _table(rows, [("configuration", "config"), ("task", "probe"),
+                  _table(rows, [("model", "model"), ("configuration", "config"),
+                                ("task", "probe"),
                                 ("trials", "trials"), ("calls", "calls"),
                                 ("succeeded", "success"), ("tool time ms", "tool_ms"),
                                 ("first call ms", "first_ms"),
                                 ("harness time ms", "trial_ms"),
                                 ("with the model (M6b) s", "m6b_s")]), ""]
+    if trials:
+        lines += ["## Request rate of the model-driven agents (M6b, under bulkhead)", "",
+                  "HTTP requests through the project's PEP per second of a trial, over "
+                  "the trials that made at least one.", "",
+                  _table(agent_rates(trials), [("model", "model"), ("trials", "trials"),
+                                               ("median req/s", "median"),
+                                               ("max req/s", "max")]), ""]
     return "\n".join(lines)
+
+
+def agent_rates(trials):
+    """Per model: HTTP requests through the HTTP(S) PEP per second of trial
+    time, for the trials under bulkhead that made at least one."""
+    by_model = {}
+    for r in trials:
+        if r.get("config") != "bulkhead":
+            continue
+        n = sum(1 for p in r.get("pep_records") or [] if p.get("pep") == "http")
+        if n and r["t1"] > r["t0"]:
+            by_model.setdefault(r["model"], []).append(n / (r["t1"] - r["t0"]))
+    return [{"model": m, "trials": len(xs), "median": pct(xs, 0.5), "max": round(max(xs), 3)}
+            for m, xs in sorted(by_model.items())]
+
+
+def load_trials(path):
+    if not path or not os.path.exists(path):
+        return []
+    with (gzip.open(path, "rt") if path.endswith(".gz") else open(path)) as f:
+        return [json.loads(line) for line in f if line.strip()]
 
 
 def main(argv=None):
@@ -786,14 +818,14 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--results", default=os.path.join(HERE, "results", "m6b",
                                                        "results.jsonl.gz"),
-                    help="model-driven trials to replay")
+                    help="model-driven trials (to replay, and for their request rate)")
     ap.add_argument("--seconds", type=float, default=5)
     ap.add_argument("--report", action="store_true", help="print tables of --out and stop")
     ap.add_argument("experiments", nargs="*", default=list(EXPERIMENTS))
     a = ap.parse_args(argv)
     if a.report:
         with open(a.out) as f:
-            print(report(json.load(f)))
+            print(report(json.load(f), load_trials(a.results)))
         return 0
     ws = run_eval.Workspace(os.path.join(a.workdir, "ws")).prepare()
     out = {}

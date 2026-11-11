@@ -89,10 +89,23 @@ Every project's partition started; then every project sends requests at once (on
 
 Each configuration replays the tool calls recorded in it, three times; harness time includes starting and stopping partitions.
 
-| configuration | task | trials | calls | succeeded | tool time ms | first call ms | harness time ms | with the model (M6b) s |
-|---|---|---|---|---|---|---|---|---|
-| baseline | MU-oss-feature | 30 | 8 | 30 | 117.66 | 7.85 | 118.0 | 14.14 |
-| baseline | MU-work-issues | 30 | 1 | 30 | 2.92 | 2.92 | 3.0 | 2.317 |
-| bulkhead | MU-oss-feature | 30 | 5 | 30 | 153.4 | 9.52 | 188.0 | 9.772 |
-| bulkhead | MU-work-issues | 30 | 1 | 30 | 46.46 | 46.46 | 83.0 | 2.26 |
+| model | configuration | task | trials | calls | succeeded | tool time ms | first call ms | harness time ms | with the model (M6b) s |
+|---|---|---|---|---|---|---|---|---|---|
+| claude-haiku-5-5 | baseline | MU-oss-feature | 15 | 8 | 15 | 157.9 | 9.4 | 158.0 | 9.219 |
+| claude-haiku-5-5 | baseline | MU-work-issues | 15 | 1 | 15 | 2.92 | 2.92 | 3.0 | 2.373 |
+| claude-haiku-5-5 | bulkhead | MU-oss-feature | 15 | 5 | 15 | 162.34 | 10.68 | 202.0 | 7.816 |
+| claude-haiku-5-5 | bulkhead | MU-work-issues | 15 | 1 | 15 | 46.54 | 46.54 | 83.0 | 2.138 |
+| claude-sonnet-5-5 | baseline | MU-oss-feature | 15 | 8 | 15 | 111.13 | 7.65 | 111.0 | 14.14 |
+| claude-sonnet-5-5 | baseline | MU-work-issues | 15 | 1 | 15 | 2.86 | 2.86 | 3.0 | 2.305 |
+| claude-sonnet-5-5 | bulkhead | MU-oss-feature | 15 | 4 | 15 | 114.28 | 7.94 | 155.0 | 9.772 |
+| claude-sonnet-5-5 | bulkhead | MU-work-issues | 15 | 1 | 15 | 45.69 | 45.69 | 82.0 | 2.26 |
+
+## Request rate of the model-driven agents (M6b, under bulkhead)
+
+HTTP requests through the project's PEP per second of a trial, over the trials that made at least one.
+
+| model | trials | median req/s | max req/s |
+|---|---|---|---|
+| claude-haiku-5-5 | 40 | 0.295 | 0.517 |
+| claude-sonnet-5-5 | 39 | 0.247 | 0.457 |
 
