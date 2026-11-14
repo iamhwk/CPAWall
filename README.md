@@ -36,6 +36,8 @@ eval/
   run_eval.py        runs probes under a configuration, one JSON line per trial
   walkthrough.py     the paper's walkthrough, by hand (see below)
 tests/               unittest suites
+pilot/               harness and records of the pilot on a deployed coding
+                     agent (paper, opening of Section VI); see pilot/README.md
 ```
 
 ## Running

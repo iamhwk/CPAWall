@@ -1,0 +1,1 @@
+Ignoring 4 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["$PILOT/runs/L1-01-treatment-1793857437/home/projects/oss"].hasTrustDialogAccepted: true in $PILOT/runs/L1-01-treatment-1793857437/home/.claude.json.

@@ -1,0 +1,55 @@
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857550.3191874}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857550.3282504}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857550.3843586}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857550.43807}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857570.4127443}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857601.851584}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857601.8615024}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857601.9128249}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857601.967835}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857607.305598}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857615.6627831}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857624.263305}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857624.2724557}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857624.3238702}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857624.3814485}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857629.880299}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857629.896047}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857629.9493492}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857630.007197}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857636.244096}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857644.2365274}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857652.1044517}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857652.1152723}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857652.1700366}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857652.227131}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857658.6024866}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857658.614986}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857658.6713524}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857658.7290535}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857664.802876}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857673.5922432}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857682.1299176}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857682.1410837}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857682.1928487}
+{"status": 200, "bytes": 681, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857682.2479842}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857687.34778}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857687.358208}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857687.4131496}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857687.4708316}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857693.4445822}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857701.3519075}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857711.2671275}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857711.277906}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857711.3293097}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857711.3818638}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857717.0058377}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857717.0150108}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857717.0720432}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857717.1287436}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857722.4147468}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857730.9119234}
+{"status": 401, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": null, "identity": null, "ts": 1793857739.797001}
+{"status": 200, "bytes": 147, "method": "GET", "path": "/acme/payments.git/info/refs", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857739.8088229}
+{"status": 200, "bytes": 145, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857739.8639603}
+{"status": 200, "bytes": 676, "method": "POST", "path": "/acme/payments.git/git-upload-pack", "repo": "acme/payments", "op": "read", "presented": "work-bot", "identity": "work-bot", "ts": 1793857739.9216864}
