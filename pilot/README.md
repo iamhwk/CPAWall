@@ -44,7 +44,10 @@ results/shakedown-1/, results/shakedown-2/   the two shakedown runs (below)
 ```
 
 Paths in the results are written relative to `$PILOT`, the working folder
-of the run. Per-trial HOME copies are not included.
+of the run. The agent's memory paths in the transcripts encode that
+folder's absolute path; there its prefix is written as `-work` (the
+original path was replaced after the run, and nothing else was changed).
+Per-trial HOME copies are not included.
 
 ## Probes
 
